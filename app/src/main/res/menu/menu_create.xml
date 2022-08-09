@@ -5,23 +5,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+
+    <item
+        android:id="@+id/menu_voice"
+        android:icon="@drawable/ic_voice"
+        android:iconTint="@color/black"
+        android:title="@string/voice"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/menu_color"
         android:icon="@drawable/ic_baseline_color_lens_24"
-        android:iconTint="@color/colorWhite"
-        android:title="Done"
+        android:iconTint="@color/black"
+        android:title="color"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_attach"
         android:icon="@drawable/ic_attach"
-        android:iconTint="@color/colorWhite"
+        android:iconTint="@color/black"
         android:title="@string/attach"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_done"
         android:icon="@drawable/ic_done"
-        android:iconTint="@color/colorWhite"
+        android:iconTint="@color/black"
         android:title="@string/done"
         app:showAsAction="always" />
+
+
+
 </menu>

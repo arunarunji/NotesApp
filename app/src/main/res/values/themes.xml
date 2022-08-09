@@ -10,6 +10,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >@color/colorWhite</item>
+        <item name="android:windowActionModeOverlay">true</item>
     </style>
 
 

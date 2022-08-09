@@ -2,7 +2,6 @@ package com.example.notesappfragment.entities
 
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -13,31 +12,30 @@ data class Notes(
 
 
     @ColumnInfo(name = "title")
-    val title: String="",
+    val title: String = "",
 
-    @ColumnInfo(name="subtitle")
-    val subtitle:String="",
-    @ColumnInfo(name="datetime")
-    val datetime:String="",
+    @ColumnInfo(name = "subtitle")
+    val subtitle: String = "",
+    @ColumnInfo(name = "datetime")
+    val datetime: String = "",
 
     @ColumnInfo(name = "note_Text")
-    val noteText:String="",
+    val noteText: String = "",
 
     @ColumnInfo(name = "image_path")
-    var imagePath:String="",
+    var imagePath: String = "",
 
     @ColumnInfo(name = "color")
-    var color:String="",
+    var color: String = "",
     @ColumnInfo(name = "web_link")
-    var weblink:String="",
+    var weblink: String = "",
+    @ColumnInfo(name = "favorite")
+    val favorite: Boolean = false,
     @PrimaryKey(autoGenerate = true)
-    val id:Int=0
-
-
+    val id: Int = 0
 
 
 ) : Parcelable {
-
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
         parcel.readString().toString(),
@@ -46,8 +44,11 @@ data class Notes(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
+
+        parcel.readByte() != 0.toByte(),
         parcel.readInt()
-    )
+    ) {
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
@@ -57,15 +58,12 @@ data class Notes(
         parcel.writeString(imagePath)
         parcel.writeString(color)
         parcel.writeString(weblink)
+        parcel.writeByte(if (favorite) 1 else 0)
         parcel.writeInt(id)
     }
 
     override fun describeContents(): Int {
         return 0
-    }
-
-    override fun toString(): String {
-        return "Notes(title='$title', subtitle='$subtitle', datetime='$datetime', noteText='$noteText', imagePath='$imagePath', color='$color', weblink='$weblink', id=$id)"
     }
 
     companion object CREATOR : Parcelable.Creator<Notes> {
@@ -77,5 +75,9 @@ data class Notes(
             return arrayOfNulls(size)
         }
     }
-
 }
+
+
+
+
+

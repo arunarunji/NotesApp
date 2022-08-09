@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_menu_app_theme.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable-v24/ic_navigation_menu.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/button_selector.xml" value="0.158" />
+        <entry key="app/src/main/res/drawable/foreground_selected_note.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_add_outline.xml" value="0.1265" />
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_color_lens_24.xml" value="0.2225" />
@@ -25,6 +26,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/ic_baseline_today_24.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/ic_fab_add_note.xml" value="0.1265" />
+        <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/ic_list.xml" value="0.1715" />
@@ -44,7 +46,7 @@
         <entry key="app/src/main/res/font/poppins_semibold.xml" value="0.3112820512820513" />
         <entry key="app/src/main/res/layout-v23/add_url.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout-v23/fragment_edit_notes_fragment.xml" value="0.3333333333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.30097961425781244" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19032258064516128" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2859375" />
         <entry key="app/src/main/res/layout/add_url.xml" value="0.5571472167968751" />
         <entry key="app/src/main/res/layout/alertdialog.xml" value="0.3182291666666667" />

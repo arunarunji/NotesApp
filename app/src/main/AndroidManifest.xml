@@ -32,8 +32,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-
             android:windowSoftInputMode="adjustPan" />
+
     </application>
 
 </manifest>

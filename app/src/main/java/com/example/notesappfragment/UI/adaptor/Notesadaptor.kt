@@ -1,19 +1,22 @@
 package com.example.notesappfragment.UI.adaptorimport
 
-
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesappfragment.R
+import com.example.notesappfragment.UI.fragment.HomeFragment
 import com.example.notesappfragment.entities.Notes
 import com.example.notesappfragment.viewModel.NotesViewModel
 
@@ -22,8 +25,11 @@ class Notesadaptor(
     val context: FragmentActivity,
     val viewLifecycleOwner: LifecycleOwner,
     var notes: ArrayList<Notes>,
-    val notesSelectedLisenter: (Notes) -> Unit
-) :
+
+    val notesSelectedLisenter: (Notes) -> Unit,
+    val homeFragment: HomeFragment,
+
+    ) :
     RecyclerView.Adapter<ViewHolder>() {
 
     var isEnable = false
@@ -54,8 +60,9 @@ class Notesadaptor(
         return ViewHolder(itemView)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-val pos=position
+        val pos = position
         val data: Notes = notes[pos]
         holder.setNote(data)
         holder.itemView.setOnClickListener {
@@ -121,35 +128,38 @@ val pos=position
                         isEnable = false
                         isSelectAll = false
                         selectList.clear()
+                        holder.itemView.foreground = null
                         notifyDataSetChanged()
+
                     }
 
                 }
                 context.startActionMode(callback)
             } else {
-                clickItem(holder);
+                clickItem(holder)
             }
             return@setOnLongClickListener true
         }
         if (isSelectAll) {
             holder.itemView.findViewById<ImageView>(R.id.checkbox).visibility = View.VISIBLE
-            holder.itemView.setBackgroundColor(Color.LTGRAY)
+            holder.itemView.foreground = getDrawable(context, R.drawable.foreground_selected_note)
+
         } else {
             holder.itemView.findViewById<ImageView>(R.id.checkbox).visibility = View.GONE
-            holder.itemView.findViewById<LinearLayout>(R.id.layoutNote).setBackgroundColor(R.drawable.background_note)
         }
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun clickItem(holder: ViewHolder) {
         val note = notes[holder.adapterPosition]
         if (holder.itemView.findViewById<ImageView>(R.id.checkbox).visibility == View.GONE) {
             holder.itemView.findViewById<ImageView>(R.id.checkbox).visibility = View.VISIBLE
-            holder.itemView.findViewById<LinearLayout>(R.id.layoutNote).setBackgroundColor(Color.LTGRAY)
+            holder.itemView.foreground = getDrawable(context, R.drawable.foreground_selected_note)
             selectList.add(note)
         } else {
             holder.itemView.findViewById<ImageView>(R.id.checkbox).visibility = View.GONE
-            holder.itemView.findViewById<LinearLayout>(R.id.layoutNote).setBackgroundColor(R.drawable.background_note)
+            holder.itemView.foreground = null
             selectList.remove(note)
         }
 
@@ -167,7 +177,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val textdateTime = itemView.findViewById<TextView>(R.id.textDateTime)
     val linearlayout = itemView.findViewById<LinearLayout>(R.id.layoutNote)
     val roundImage = itemView.findViewById<ImageView>(R.id.imageNoteround)
-
+    val favorite = itemView.findViewById<ImageView>(R.id.rv_faviroteImage)
     fun setNote(note: Notes) {
         texttitle.text = note.title
         if (note.subtitle.trim().isEmpty())
@@ -176,11 +186,14 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             textsubtitle.text = note.subtitle
         }
         textdateTime.text = note.datetime
-//        val gradientDrawable = linearlayout.background as GradientDrawable
+        val gradientDrawable = linearlayout.background as GradientDrawable
+        if (!note.favorite) {
+            favorite.visibility = View.GONE
+        }
         if (note.color.isNotEmpty())
-           linearlayout.setBackgroundColor(Color.parseColor(note.color))
+            gradientDrawable.setColor(Color.parseColor(note.color))
         else
-            linearlayout.setBackgroundColor(Color.parseColor("#FF822E"))
+            gradientDrawable.setColor(Color.parseColor("#FF822E"))
         if (note.imagePath != "") {
             roundImage.setImageBitmap(BitmapFactory.decodeFile(note.imagePath))
             roundImage.visibility = View.VISIBLE

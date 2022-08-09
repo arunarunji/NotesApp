@@ -9,6 +9,9 @@
     android:background="@drawable/background_note"
     android:orientation="vertical">
 
+
+
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageNoteround"
         android:layout_width="match_parent"
@@ -17,6 +20,8 @@
         android:visibility="gone"
         app:riv_corner_radius_top_left="10dp"
         app:riv_corner_radius_top_right="10dp" />
+
+
 
     <TextView
         android:id="@+id/texttitle"
@@ -53,13 +58,33 @@
         android:includeFontPadding="false"
         android:textColor="@color/colorTextSubtitle"
         android:textSize="11sp" />
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    >
+    <ImageView
+        android:id="@+id/rv_faviroteImage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_faviortie"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="visible"
+        />
     <ImageView
         android:id="@+id/checkbox"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/ic_checkline"
+        android:layout_marginStart="10dp"
         android:visibility="gone" />
+
+
+
+
+</LinearLayout>
+
     <!--    <com.google.android.material.chip.Chip-->
     <!--        android:id="@+id/textDateTime"-->
     <!--        android:layout_width="wrap_content"-->

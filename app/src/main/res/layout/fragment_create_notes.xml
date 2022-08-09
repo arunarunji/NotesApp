@@ -23,7 +23,7 @@
             <EditText
 
                 android:id="@+id/inputNoteTitle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="30dp"
@@ -37,7 +37,33 @@
                 android:inputType="text"
                 android:textColor="@color/colorText"
                 android:textColorHint="@color/colorText"
+                app:layout_constraintEnd_toEndOf="@id/favoriteImage"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <FrameLayout
+                android:id="@+id/favoriteImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/not_a_Faviorte"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_heart" />
+
+                <ImageView
+                    android:id="@+id/yes_a_faviortie"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_faviortie"
+                    android:visibility="gone" />
+
+            </FrameLayout>
 
 
             <TextView
@@ -53,16 +79,7 @@
                 app:layout_constraintStart_toStartOf="@id/inputNoteTitle"
                 app:layout_constraintTop_toBottomOf="@id/inputNoteTitle" />
 
-            <ImageView
-                android:id="@+id/voice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_baseline_keyboard_voice_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/inputNoteSubtitle"
-                app:tint="@color/colorAccent" />
+
 
             <EditText
                 android:id="@+id/inputNoteSubtitle"

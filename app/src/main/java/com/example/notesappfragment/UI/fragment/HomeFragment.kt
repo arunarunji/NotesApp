@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notesappfragment.R
-import com.example.notesappfragment.UI.OnClickLisenter
 import com.example.notesappfragment.UI.adaptorimport.Notesadaptor
 import com.example.notesappfragment.databinding.FragmentHomeBinding
 import com.example.notesappfragment.entities.Notes
@@ -28,13 +27,14 @@ import com.example.notesappfragment.helper.IndentKeys.CURRENT_MODE
 import com.example.notesappfragment.helper.IndentKeys.LIST_VIEW
 import com.example.notesappfragment.helper.IndentKeys.SHARE_PREFERENCE_OF_CURRENT_DATA
 import com.example.notesappfragment.helper.IndentKeys.STAGGERED_GRID
+import com.example.notesappfragment.lisenter.NoteListener
 import com.example.notesappfragment.viewModel.NotesViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 
-class HomeFragment : Fragment(),OnClickLisenter {
+class HomeFragment : Fragment(),NoteListener {
 
     private lateinit var preferences: SharedPreferences
     private lateinit var binding: FragmentHomeBinding
@@ -144,7 +144,7 @@ class HomeFragment : Fragment(),OnClickLisenter {
         } else {
             binding.recyclerView.layoutManager = staggeredGridLayoutManager
         }
-        adapter = Notesadaptor(requireActivity(), viewLifecycleOwner, list, notesSelectedLisenter)
+        adapter = Notesadaptor(requireActivity(), viewLifecycleOwner, list, notesSelectedLisenter,this)
 
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             val fab: FloatingActionButton = binding.floatingActionAddNotesBtn
@@ -296,12 +296,13 @@ class HomeFragment : Fragment(),OnClickLisenter {
         }
     }
 
-    override fun onNotesClickedLisenter(title: String) {
-        requireActivity().menuInflater.inflate(R.menu.muliptle_delete, menuObj)
-        requireActivity().title=title
+    override fun onNoteClicked(view: View?, note: Notes, position: Int) {
+        TODO("Not yet implemented")
     }
 
+    override fun onNoteLongClicked(view: View?, note: Notes, position: Int) {
 
+    }
 
 
 }

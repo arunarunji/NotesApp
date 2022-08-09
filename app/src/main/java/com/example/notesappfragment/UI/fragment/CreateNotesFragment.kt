@@ -3,7 +3,6 @@ package com.example.notesappfragment.UI.fragment
 import android.Manifest
 import android.R.attr
 import android.app.Activity.RESULT_OK
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
@@ -22,7 +21,6 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.notesappfragment.R
-import com.example.notesappfragment.UI.FragmentListener
 import com.example.notesappfragment.databinding.FragmentCreateNotesBinding
 import com.example.notesappfragment.entities.Notes
 import com.example.notesappfragment.viewModel.NotesViewModel
@@ -33,30 +31,31 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
- class CreateNotesFragment private constructor() : Fragment(), View.OnClickListener {
+class CreateNotesFragment private constructor() : Fragment(), View.OnClickListener {
 
 
     companion object {
         private const val REQUEST_CODE_SPEECH_INPUT = 3
 
-        fun newInstance(attach:Boolean,voice:Boolean,webLink:Boolean)=CreateNotesFragment().apply {
-            isAttached=attach
-            isvoice=voice
-            isweblink=webLink
+        fun newInstance(attach: Boolean, voice: Boolean, webLink: Boolean) =
+            CreateNotesFragment().apply {
+                isAttached = attach
+                isvoice = voice
+                isweblink = webLink
 
-        }
+            }
     }
-     private lateinit var fragmentListener: FragmentListener
-     private  var isAttached=false
-     private  var isvoice=false
-     private  var isweblink=false
-    lateinit var binding: FragmentCreateNotesBinding
+
+    private var isAttached = false
+    private var isvoice = false
+    private var isweblink = false
+    private lateinit var binding: FragmentCreateNotesBinding
     private var selectedImagePath: String = ""
     private lateinit var bottomsheet: BottomSheetDialog
     private lateinit var dailogBottomSheetDialog: BottomSheetDialog
     private var selectedNoteColor: String = "#FF822E"
     private var urlLink: String = ""
-
+    private var isfavorite: Boolean = false
     val viewModel: NotesViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,12 +70,8 @@ import java.util.*
 
         }
 
-        binding.voice.setOnClickListener {
 
-
-        }
-
-
+        checkforFavorite()
 
 
         setHasOptionsMenu(true)
@@ -84,24 +79,36 @@ import java.util.*
 
     }
 
-     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-         super.onViewCreated(view, savedInstanceState)
-         if(isAttached)
-         {
-             attach_image()
-         }
-         else if(isvoice)
-         {
-             voiceToText()
-         }
-         else if(isweblink)
-         {
-             showDailogOfUrl()
-         }
-     }
+
+    private fun checkforFavorite() {
+        binding.favoriteImage.setOnClickListener {
+            if (isfavorite) {
+                binding.notAFaviorte.visibility = View.VISIBLE
+                binding.yesAFaviortie.visibility = View.GONE
+                isfavorite = false
+            } else {
+                binding.notAFaviorte.visibility = View.GONE
+                binding.yesAFaviortie.visibility = View.VISIBLE
+                isfavorite = true
+            }
+        }
 
 
-     fun voiceToText() {
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (isAttached) {
+            attach_image()
+        } else if (isvoice) {
+            voiceToText()
+        } else if (isweblink) {
+            showDailogOfUrl()
+        }
+    }
+
+
+    fun voiceToText() {
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -124,7 +131,7 @@ import java.util.*
         val timeAndDate = SimpleDateFormat("dd MMMM yyyy HH:mm a", Locale.getDefault()).format(
             Date()
         )
-        val notes = Notes(title, subtitle, timeAndDate, notetext)
+        val notes = Notes(title, subtitle, timeAndDate, notetext, favorite = isfavorite)
         viewModel.addNotes(notes)
         notes.imagePath = selectedImagePath
         notes.color = selectedNoteColor
@@ -138,8 +145,8 @@ import java.util.*
 
 
     }
-    fun attach_image()
-    {
+
+    fun attach_image() {
         bottomsheet = BottomSheetDialog(requireContext())
         bottomsheet.setContentView(R.layout.bottomsheetdailog)
         bottomsheet.show()
@@ -151,7 +158,6 @@ import java.util.*
     }
 
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_done -> {
@@ -159,7 +165,11 @@ import java.util.*
 
             }
             R.id.menu_attach -> {
-               attach_image()
+                attach_image()
+            }
+
+            R.id.menu_voice -> {
+                voiceToText()
             }
             R.id.menu_color -> {
                 bottomsheet = BottomSheetDialog(requireContext())
@@ -457,8 +467,7 @@ import java.util.*
             dailogBottomSheetDialog.dismiss()
             binding.textwebUrl.text = urlLink
             binding.layoutWebUrl.visibility = View.VISIBLE
-            if(!isweblink)
-            {
+            if (!isweblink) {
                 bottomsheet.dismiss()
             }
 
@@ -470,7 +479,7 @@ import java.util.*
 
     }
 
-     fun showDailogOfUrl() {
+    fun showDailogOfUrl() {
         dailogBottomSheetDialog = BottomSheetDialog(requireContext())
         dailogBottomSheetDialog.setContentView(R.layout.add_url)
 
@@ -542,7 +551,6 @@ import java.util.*
             false
         }
     }
-
 
 
 }

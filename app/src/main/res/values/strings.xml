@@ -47,6 +47,7 @@
     <string name="dont_think_just_read">Dont think just read</string>
     <string name="select_all">select all</string>
     <string name="delete">delete</string>
+    <string name="voice">Voice</string>
 
     <style name="SubTopic" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#9E9E9E</item>

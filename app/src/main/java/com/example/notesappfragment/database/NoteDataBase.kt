@@ -2,13 +2,11 @@ package com.example.notesappfragment.database
 
 import android.app.Application
 import androidx.room.*
-import com.example.notesappfragment.Convertor
 import com.example.notesappfragment.entities.Notes
 import com.example.notesappfragment.noteDao.NoteDao
 
 
-@Database(entities = [Notes::class], version = 1, exportSchema = false)
-@TypeConverters(Convertor::class)
+@Database(entities = [Notes::class], version = 2, exportSchema = true)
 abstract class NoteDataBase: RoomDatabase() {
 
     abstract fun getNotesDao(): NoteDao
@@ -28,7 +26,7 @@ abstract class NoteDataBase: RoomDatabase() {
                     "note_database"
 
 
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE=instance
                 instance
             }

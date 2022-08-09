@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/addurlcontainer"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="@string/dailog_box"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+
+        />
+    <EditText
+        android:id="@+id/etUrl"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/https_www_google_com"
+        android:drawableStart="@drawable/ic_lang"
+        android:drawableTint="@color/colorNotecolor4"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        />
+
+    <TextView
+        android:id="@+id/btnSubmit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/submit_button"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btncancel"
+        app:layout_constraintBottom_toBottomOf="@id/btncancel"
+
+        />
+
+
+    <TextView
+        android:id="@+id/btncancel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:background="@drawable/submit_button"
+        android:textColor="@color/white"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="40dp"
+       app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etUrl"/>
+
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toEndOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        >
+
+
+
+
+        <ImageView
+            android:id="@+id/imageSuccess"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            android:src="@drawable/check"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/imagefail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            android:src="@drawable/failed"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

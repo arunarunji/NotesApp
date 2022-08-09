@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/sheet_background"
+    android:layout_height="160dp"
+    android:id="@+id/color_pick"
+    android:elevation="20dp"
+    android:backgroundTint="#edf2ef"
+    android:orientation="vertical"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    >
+
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textmicellanlousMain"
+        app:tint="@color/red" />
+
+    <TextView
+        android:id="@+id/textmicellanlousMain"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="Pick a color"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <View
+        android:id="@+id/colorview1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="#9E9E9E"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/textmicellanlousMain" />
+
+
+    <View
+        android:id="@+id/colorview2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="#9E9E9E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNoteColor2" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <LinearLayout
+
+        android:id="@+id/layoutNoteColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline">
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/viewcolor1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note1" />
+
+            <ImageView
+                android:id="@+id/imagecolor1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_done"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note2"
+                />
+
+            <ImageView
+                android:id="@+id/imagecolor2"
+                android:layout_width="36dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note3"
+                />
+            <ImageView
+                android:id="@+id/imagecolor3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note4"
+                />
+            <ImageView
+                android:id="@+id/imagecolor4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/viewcolor5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note5" />
+
+            <ImageView
+                android:id="@+id/imagecolor5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:id="@+id/layoutNoteColor2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutNoteColor"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"
+        >
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/viewcolor6"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note6" />
+
+            <ImageView
+                android:id="@+id/imagecolor6"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor7"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note7"
+                />
+
+            <ImageView
+                android:id="@+id/imagecolor7"
+                android:layout_width="36dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor8"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note8"
+                />
+            <ImageView
+                android:id="@+id/imagecolor8"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+
+
+
+            <View
+                android:id="@+id/viewcolor9"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note9"
+                />
+            <ImageView
+                android:id="@+id/imagecolor9"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/viewcolor10"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/background_color_note10" />
+
+            <ImageView
+                android:id="@+id/imagecolor10"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/colorWhite" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

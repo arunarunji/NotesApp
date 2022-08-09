@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="5dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UI.fragment.EditNotesFragmentFragment"
+        tools:ignore="MissingClass">
+
+
+        <TextView
+
+            android:id="@+id/tvWrittenBy"
+            style="@style/SubTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/written_by"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewLine" />
+
+        <TextView
+            android:id="@+id/tvLastUpdate"
+            style="@style/SubTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_update"
+            app:layout_constraintStart_toStartOf="@id/tvWrittenBy"
+            app:layout_constraintTop_toBottomOf="@id/tvWrittenBy" />
+
+        <TextView
+            android:id="@+id/tvTags"
+            style="@style/SubTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tags"
+            app:layout_constraintStart_toStartOf="@id/tvWrittenBy"
+            app:layout_constraintTop_toBottomOf="@id/tvLastUpdate" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/SubTopicValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/arunkumar_m"
+            app:layout_constraintBottom_toBottomOf="@id/profile"
+            app:layout_constraintStart_toEndOf="@id/profile"
+            app:layout_constraintTop_toTopOf="@id/profile" />
+
+        <TextView
+            android:id="@+id/textDateTime"
+            style="@style/SubTopicValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/_4_jun_9_01_am"
+            app:layout_constraintBottom_toBottomOf="@id/tvLastUpdate"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tvLastUpdate"
+
+            />
+
+
+        <!--    EditTExt-->
+
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:autofillHints="name"
+            android:hint="@string/title_optional"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutNoteColor" />
+
+        <EditText
+            android:id="@+id/etsubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:autofillHints="name"
+            android:hint="@string/subtitle_optional"
+            android:inputType="none"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etTitle" />
+
+
+
+        <TextView
+            android:drawableRight="@drawable/ic_lang"
+            android:drawableTint="@color/colorAccent"
+            android:id="@+id/textwebUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:includeFontPadding="false"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:hint="@string/www_google_com"
+            android:inputType="none"
+            app:layout_constraintStart_toStartOf="@id/etsubtitle"
+            app:layout_constraintEnd_toEndOf="@id/etsubtitle"
+            app:layout_constraintTop_toBottomOf="@id/etsubtitle"
+            app:layout_constraintBottom_toTopOf="@id/etdescrption"
+            />
+        <EditText
+            android:drawableEnd="@drawable/ic_description"
+            android:id="@+id/etdescrption"
+            android:drawableTint="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:gravity="start|top"
+            android:hint="@string/enter_note_description"
+            android:inputType="none"
+            android:singleLine="false"
+            android:textColor="@color/colorIcons"
+            android:textColorHint="@color/colorIcons"
+            android:textSize="20sp"
+
+            app:layout_constraintStart_toStartOf="@id/etsubtitle"
+            app:layout_constraintTop_toBottomOf="@id/textwebUrl"
+
+            />
+
+
+        <!--View-->
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#9E9E9E"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/layoutNoteColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/colorview">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <View
+                    android:id="@+id/viewcolor1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/background_color_note1" />
+
+                <ImageView
+                    android:id="@+id/imagecolor1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_done"
+                    app:tint="@color/colorWhite" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <View
+                    android:id="@+id/viewcolor2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/background_color_note2" />
+
+                <ImageView
+                    android:id="@+id/imagecolor2"
+                    android:layout_width="36dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    app:tint="@color/colorWhite" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <View
+                    android:id="@+id/viewcolor3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/background_color_note3" />
+
+                <ImageView
+                    android:id="@+id/imagecolor3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    app:tint="@color/colorWhite" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <View
+                    android:id="@+id/viewcolor4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/background_color_note4" />
+
+                <ImageView
+                    android:id="@+id/imagecolor4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    app:tint="@color/colorWhite" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <View
+                    android:id="@+id/viewcolor5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/background_color_note5" />
+
+                <ImageView
+                    android:id="@+id/imagecolor5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    app:tint="@color/colorWhite" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/textmiclleanous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/pick_color"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+        <!--    IMAGE VIEW-->
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageNote"
+          android:layout_margin="25dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etdescrption" />
+
+        <View
+            android:id="@+id/colorview"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="#9E9E9E"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="57dp"
+            android:layout_height="42dp"
+
+            android:src="@drawable/man"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvWrittenBy"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="@id/tvWrittenBy" />
+
+
+        <!--   Button-->
+
+        <ImageView
+            android:id="@+id/tagicon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="@id/tvTags"
+            app:layout_constraintStart_toStartOf="@id/tvTags" />
+
+
+        <!--    GuideLines-->
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="150dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="200dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="40dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+

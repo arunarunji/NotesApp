@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_Search"
+        android:icon="@drawable/ic_search"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/done"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/menu_List"
+        android:icon="@drawable/list"
+        android:iconTint="@color/colorWhite"
+        android:title="List"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/gridview"
+        android:icon="@drawable/grid"
+        android:iconTint="@color/colorWhite"
+        android:title="@string/grid"
+        app:showAsAction="always"
+        />
+
+
+</menu>

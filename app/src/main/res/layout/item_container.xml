@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutNote"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    android:background="@drawable/background_note"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageNoteround"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        app:riv_corner_radius_top_left="10dp"
+        app:riv_corner_radius_top_right="10dp" />
+
+    <TextView
+        android:id="@+id/texttitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/textsubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorTextSubtitle"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorTextSubtitle"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_checkline"
+        android:visibility="gone" />
+    <!--    <com.google.android.material.chip.Chip-->
+    <!--        android:id="@+id/textDateTime"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="44dp"-->
+    <!--        app:chipIcon="today"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:fontFamily="sans-serif-condensed-medium"-->
+    <!--        android:includeFontPadding="false"-->
+    <!--        android:textColor="@color/colorTextSubtitle"/>-->
+
+</LinearLayout>
